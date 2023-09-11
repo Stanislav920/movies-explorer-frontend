@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 function Register() {
     return(
+      <main>
         <section className="register">
           <div className="register__box">
             <div className="register__logo-box">
@@ -13,7 +14,7 @@ function Register() {
               </Link>
             </div>
     
-            <h2 className="register__title">Доброе пожаловать!</h2>
+            <h1 className="register__title">Доброе пожаловать!</h1>
     
             <form noValidate className="register__form" name="register-form">
               <div className="register__field">
@@ -24,6 +25,10 @@ function Register() {
                              name="name" 
                              placeholder="Введите Ваше Имя"
                              autoComplete="off"
+                             minLength={5}
+                             maxLength={30}
+                             pattern="^[A-Za-zА-Яа-яЁё /s -]{4,30}"
+                             required
                             
                        />
                         <div className="error__register"></div>
@@ -35,6 +40,10 @@ function Register() {
                              name="email" 
                              placeholder="Введите Ваш E-mail"
                              autoComplete="off"
+                             minLength={2}
+                             maxLength={30}
+                             pattern="^[\w]+@[a-zA-Z]+\.[a-zA-Z]{2,30}$"
+                             required
                              
                       />
                        <div className="error__register"></div>
@@ -46,6 +55,9 @@ function Register() {
                              name="password" 
                              placeholder="Введите Ваш Пароль"
                              autoComplete="off"
+                             minLength={5}
+                             maxLength={16}
+                             required
                             
                        />
                       <div className="error__register"></div>
@@ -62,6 +74,7 @@ function Register() {
     
           </div>
         </section>
+      </main>
       );
     }
     

@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15px;
+    padding-bottom: 13px;
     border-bottom: 1px solid #E8E8E8;
   }
   
@@ -21,9 +21,9 @@
   }
       
   .searchform__button {
-    border-radius:  58.65px;
+    border-radius:  48px;
     background-color: #3456F3;
-    width: 80px;
+    width: 58.65px;;
     height: 34px;
     background-repeat: no-repeat;
     background-position: bottom 50% right 50%;
@@ -61,7 +61,7 @@
     align-items: center;
     gap: 14px;
     margin: auto;
-    padding: 30px 0 49px; 
+    padding: 33px 0 49px; 
   }
   
   .searchform__checkbox-input {
@@ -71,7 +71,7 @@
   .searchform__checkbox-custom {
     width: 34px;
     height: 14px;
-    background-color: #EBEBEB;
+    background-color:#2BE080;
 
     border-radius: 20px;
     position: relative;
@@ -86,16 +86,16 @@
     height: 10px;
     border-radius: 100%;
     top: 15%;
-    left: 8.33%; 
+    right: 8.33%; 
     background-color: #FFF;
     transition: 0.3s;
   }
   
   .searchform__checkbox-input:checked ~ .searchform__checkbox-custom {
-    background: #2BE080;
+    background:#EBEBEB;
   }
   .searchform__checkbox-input:checked ~ .searchform__checkbox-custom::after {
-    left: 60%;
+    right: 60%;
   }
   
   .error {
@@ -110,8 +110,11 @@
   }
   
   @media screen and (max-width: 769px) {
+    .searchform {
+      padding: 80px 30px 0;
+    }
+
     .searchform__block {
-      padding: 86px 30px 15px 30px;
       max-width: 708px;
       margin: auto;
     }
@@ -122,24 +125,26 @@
   
     .searchform__switch {
       max-width: 708px;
-      padding: 30px 0 62px;
+      padding: 30px 0 61px;
+
+      justify-content: end;
+      flex-flow: row-reverse;
     }
   }
   
   @media screen and (max-width: 425px) {
     .searchform {
-      padding: 98px 14px 0;
+      padding: 86px 14px 0;
     }
   
     .searchform__block {
-      padding: 0px 14px 15px 14px;
       max-width: 292px;
       margin: auto;
     }
   
     .searchform__input {
       font-size: 18px;
-      line-height: 22px;
+      line-height: normal;
       width: 65%;
       text-align: left;
     }
@@ -147,9 +152,16 @@
     .searchform__input-logo {
       display: none;
     }
+
+    .searchform__shorts  {
+      font-size: 11px;
+    }
   
     .searchform__switch {
       max-width: 292px;
-      padding: 43px 0 51px;
+      padding: 41px 0 51px;
+      justify-content: center;
+      gap: 13px;
     }
+    
   }

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
     return(
+      <main>
         <section className="login">
           <div className="login__box">
                 <div className="login__logo-box">
@@ -12,7 +13,7 @@ function Login() {
                     <img src={logo} alt="Логотип" className="login__logo" />
                   </Link>
                 </div>
-            <h2 className="login__title">Рады видеть!</h2>
+            <h1 className="login__title">Рады видеть!</h1>
             <form noValidate className="login__form" name="login-form">
               <div className="login__field">
                   <label>
@@ -22,6 +23,10 @@ function Login() {
                              name="email"
                              autoComplete="off"
                              placeholder="Введите Ваш E-mail" 
+                             minLength={2}
+                             maxLength={30}
+                             pattern="^[\w]+@[a-zA-Z]+\.[a-zA-Z]{2,30}$"
+                             required
                              
                                                           
                       />
@@ -34,7 +39,10 @@ function Login() {
                              name="password"
                              autoComplete="off"
                              placeholder="Введите Ваш Пароль" 
-                             
+                             minLength={5}
+                             maxLength={16}
+                             required
+                            
                        />
                        <div className="error__login"></div>
                   </label>
@@ -49,6 +57,7 @@ function Login() {
             </form>
           </div>
         </section>
+      </main>
       );
 }
 

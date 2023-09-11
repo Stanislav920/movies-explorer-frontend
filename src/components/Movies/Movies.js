@@ -13,7 +13,7 @@ function Movies() {
           <main className="main__box">
             <SearchForm/>
             <MoviesCardList/>
-              <button className="movies__button">
+              <button className="movies__button" type="button">
                 Еще
               </button>
           </main>

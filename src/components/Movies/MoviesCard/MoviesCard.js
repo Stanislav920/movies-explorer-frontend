@@ -16,7 +16,7 @@ function MoviesCard () {
             className="card__link"
             rel="noreferrer"
           >
-            <img className="moviesCard__image" src={Image} alt="Фотография" />
+            <img className="moviesCard__image" src={Image} alt="Фотография человека"/>
           </a>
           <div className="moviesCard__container">
               <h2 className="moviesCard__title">Зона</h2>

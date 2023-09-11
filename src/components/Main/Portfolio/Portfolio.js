@@ -10,7 +10,7 @@ function Portfolio() {
         <li className="portfolio__card">
           <a
               className="porfolio__link"
-               href = "#"
+               href = "https://stanislav920.github.io/how-to-learn/"
               target="_blank"
               rel="noreferrer"
           >

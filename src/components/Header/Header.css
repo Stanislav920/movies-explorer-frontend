@@ -12,6 +12,14 @@
     padding: 0 70px;
 }
 
+.header__logo {
+  transition: 0.2s linear;
+}
+
+.header__logo:hover {
+  opacity: 0.7;
+}
+
 .header__button-container {
     margin-left: auto;
     display: flex;
@@ -71,6 +79,9 @@
   }
 
   .header__button-auth {
+    width: 54px;
+    height: 26px;
+
     font-size: 10px;
   }
 }

@@ -109,7 +109,6 @@
     font-size: 13px;
     line-height: 16px;
     text-align: center;
-    color: #EE3465;
     cursor: pointer;
     text-decoration: none;
     background-color: transparent;
@@ -117,6 +116,11 @@
   
   .profile__button_signin:hover {
     opacity: 0.7;
+  }
+
+  .profile__button_signout {
+    text-decoration: none;
+    color: #EE3465;
   }
   
   @media screen and (max-width: 769px) {

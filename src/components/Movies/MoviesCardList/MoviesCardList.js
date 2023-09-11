@@ -4,8 +4,9 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList () {
     return(
+      <main>
         <section className="movieCardList">
-          <div className="movieCardList__box">
+          <ul className="movieCardList__box">
                 <MoviesCard />
                 <MoviesCard />
                 <MoviesCard />
@@ -13,15 +14,10 @@ function MoviesCardList () {
                 <MoviesCard />
                 <MoviesCard />
                 <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-          </div>
+                <MoviesCard />  
+          </ul>
         </section>
+        </main>
       );
 }
 
