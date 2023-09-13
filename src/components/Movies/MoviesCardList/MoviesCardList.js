@@ -4,7 +4,6 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList () {
     return(
-      <main>
         <section className="movieCardList">
           <ul className="movieCardList__box">
                 <MoviesCard />
@@ -14,10 +13,17 @@ function MoviesCardList () {
                 <MoviesCard />
                 <MoviesCard />
                 <MoviesCard />
-                <MoviesCard />  
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />   
           </ul>
         </section>
-        </main>
       );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MoviesCard.css";
-import Image from '../../../images/image.svg'
+import Image from '../../../images/image.jpg';
 import deleteFilmButton from "../../../images/Close.svg";
 import saveFilmButton from "../../../images/icon__heart-red.svg";
 import saveButton from "../../../images/icon__heart.svg";
@@ -10,13 +10,13 @@ function MoviesCard () {
   const [like,setLike] = useState(false)
   const location = useLocation();
     return(
-        <div className="moviesCard">
+        <li className="moviesCard">
           <a href="#"
             target="_blank"
-            className="card__link"
+            className="moviesCard__link"
             rel="noreferrer"
           >
-            <img className="moviesCard__image" src={Image} alt="Фотография человека"/>
+            <img className="moviesCard__image" src={Image} alt="Фотография детей на игровой площадки"/>
           </a>
           <div className="moviesCard__container">
               <h2 className="moviesCard__title">Зона</h2>
@@ -34,7 +34,7 @@ function MoviesCard () {
                   
           </div>
           <p className="moviesCard__duration">1ч42м</p>
-        </div>
+        </li>
       );
 }
 

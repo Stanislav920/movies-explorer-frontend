@@ -9,7 +9,8 @@
     column-gap: 20px;
     row-gap: 33px;
     justify-content: center;
-    padding: 70px 0 10px;
+    padding: 70px 70px 10px;
+    margin: 0;
   }
   
   @media screen and (max-width: 769px) {
@@ -28,6 +29,6 @@
       grid-template-columns: 300px;
       row-gap: 31px;
       justify-content: center;
-      padding: 40px 0 30px;
+      padding: 40px 0 41px;
     }
   }

@@ -21,6 +21,7 @@
   .login__logo {
     width: 38px;
     height: 38px;
+    padding: 6px 0 0 0;
   }
   
   .login__title {
@@ -43,7 +44,7 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding-bottom: 179px;
+    padding-bottom: 210px;
   }
   
   .login__email {
@@ -79,14 +80,14 @@
   }
   
   .login__input:invalid {
-    border-bottom: 1px solid #EE3465;
+    border-bottom: 1px solid #E8E8E8;
   }
   
   .login__input:valid {
-    border-bottom: 1px solid  #E8E8E8;;
+    border-bottom: 1px solid  #E8E8E8;
   }
   
-  .error__login {
+  .login__error {
     color: #EE3465;
     font-style: normal;
     font-weight: 400;
@@ -168,7 +169,7 @@
     }
   
     .login__field {
-      padding-bottom: 267px;
+      padding-bottom: 298px;
     }
   
     .login__button {

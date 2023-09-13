@@ -5,7 +5,7 @@ function NavTab() {
     return (
         <div className="navtab">
             <a href="#about" className="navtab__link">
-                <button className="navtab__button" type="button">Узнать больше</button>
+                Узнать больше
             </a>
         </div>
     );

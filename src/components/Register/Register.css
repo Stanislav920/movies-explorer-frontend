@@ -88,19 +88,23 @@
 }
 
 .register__input:invalid {
-  border-bottom: 1px solid #EE3465;
+  border-bottom: 1px solid #3456F3;;
 }
 
 .register__input:valid {
-  border-bottom: 1px solid #E8E8E8;;
+  border-bottom: 1px solid #E8E8E8;
 }
 
-.error__register {
+.register__error {
   color: #EE3465;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
+}
+
+.register__button-box {
+  margin: 0;
 }
 
 .register__button {
@@ -176,7 +180,7 @@
   }
 
   .register__field {
-    padding-bottom: 240px;
+    padding-bottom: 222px;
   }
 
   .register__button {

@@ -1,11 +1,9 @@
 .App {
     max-width: 1280px;
     min-width: 320px;
+    min-height: 100vh;
+    
     margin: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     background-color:  #fff;
     font-family: "Inter", Arial, sans-serif;
-    min-height: 100vh;
   }

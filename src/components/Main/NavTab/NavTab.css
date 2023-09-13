@@ -7,20 +7,29 @@
     margin: 0;
   }
   
-  .navtab__button {
+  .navtab__link {
     width: 129px;
     height: 36px;
     box-sizing: border-box;
+    padding: 10px;
     color: #FFFFFF;
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+
     background-color: #073042;
     border: 1px solid #FFFFFF;
     border-radius: 3px;
     cursor: pointer;
     transition: 0.4s;
     opacity: 0.6;
+    text-decoration: none;
   }
   
-  .navtab__button:hover {
+  .navtab__link:hover {
     opacity: 0.7;
   }
   

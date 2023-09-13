@@ -61,7 +61,7 @@
     align-items: center;
     gap: 14px;
     margin: auto;
-    padding: 33px 0 49px; 
+    padding: 29px 0 49px; 
   }
   
   .searchform__checkbox-input {
@@ -140,6 +140,7 @@
     .searchform__block {
       max-width: 292px;
       margin: auto;
+      padding: 0 0 9px 0;
     }
   
     .searchform__input {
@@ -159,7 +160,7 @@
   
     .searchform__switch {
       max-width: 292px;
-      padding: 41px 0 51px;
+      padding: 33px 0 51px;
       justify-content: center;
       gap: 13px;
     }

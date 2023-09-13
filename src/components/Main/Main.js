@@ -15,7 +15,6 @@ function Main() {
     return (
         <div className="content">
             <Header />
-         
             <main>
                 <Promo/>
                 <AboutProject/>

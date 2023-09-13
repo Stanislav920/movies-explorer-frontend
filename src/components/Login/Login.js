@@ -30,7 +30,7 @@ function Login() {
                              
                                                           
                       />
-                       <div className="error__login"></div>
+                       <span className="login__error"></span>
                   </label>
                   <label>
                       <span className="login__password">Пароль</span>
@@ -44,7 +44,7 @@ function Login() {
                              required
                             
                        />
-                       <div className="error__login"></div>
+                       <span className="login__error"></span>
                   </label>
               </div>
               <div className="login__button-box">

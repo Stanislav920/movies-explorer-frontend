@@ -10,10 +10,10 @@ function Movies() {
         <>
 
           <HeaderAuth/>
-          <main className="main__box">
+          <main className="main-box">
             <SearchForm/>
             <MoviesCardList/>
-              <button className="movies__button" type="button">
+              <button className="main-box__button" type="button">
                 Еще
               </button>
           </main>

@@ -14,12 +14,12 @@ function Register() {
               </Link>
             </div>
     
-            <h1 className="register__title">Доброе пожаловать!</h1>
+            <h1 className="register__title">Добро пожаловать!</h1>
     
             <form noValidate className="register__form" name="register-form">
               <div className="register__field">
               <label>
-                      <label className="register__name">Имя</label>
+                      <span className="register__name">Имя</span>
                       <input className="register__input" 
                              type="text" 
                              name="name" 
@@ -31,10 +31,10 @@ function Register() {
                              required
                             
                        />
-                        <div className="error__register"></div>
+                        <span className="register__error"></span>
                   </label>
                   <label>
-                      <label className="register__email">E-mail</label>
+                      <span className="register__email">E-mail</span>
                       <input className="register__input" 
                              type="email" 
                              name="email" 
@@ -46,10 +46,10 @@ function Register() {
                              required
                              
                       />
-                       <div className="error__register"></div>
+                       <span className="register__error"></span>
                   </label>
                   <label>
-                      <label className="register__password">Пароль</label>
+                      <span className="register__password">Пароль</span>
                       <input className="register__input" 
                              type="password" 
                              name="password" 
@@ -60,13 +60,13 @@ function Register() {
                              required
                             
                        />
-                      <div className="error__register"></div>
+                      <span className="register__error"></span>
                   </label>
               </div>
               <div className="register__button-box">
                   <button className="register__button" type="submit">Зарегистрироваться</button>
                   <Link className="register__link" to="/signin">
-                      Ещё не зарегистрированы?
+                  Уже зарегистрированы?
                       <span className="register__login">Войти</span>
                   </Link>
               </div>

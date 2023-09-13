@@ -1,5 +1,5 @@
 .aboutme {
-    padding: 110px  70px 125px;
+    padding: 110px  70px 100px;
     margin: 0;
 
     background: #FFF;
@@ -90,7 +90,7 @@
     }
 
     .aboutme__title {
-      padding: 0 0 28px 0;
+      padding: 90px 0 28px 0;
       letter-spacing: -0.72px;
 
     }
@@ -128,10 +128,11 @@
   
   @media screen and (max-width: 525px) {
     .aboutme {
-      padding: 70px 14px;
+      padding: 70px 14px 50px;
     }
 
     .aboutme__title {
+      padding: 0 0 28px;
       font-size: 18px;
     }
   

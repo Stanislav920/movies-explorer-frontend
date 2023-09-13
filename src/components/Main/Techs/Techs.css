@@ -5,7 +5,7 @@
 
 .techs__box {
   display: flex;
-  padding: 110px 70px 100px 70px;
+  padding: 100px 70px 100px 70px;
   margin: auto;
   max-width: 1140px;
   flex-direction: column;
@@ -137,7 +137,7 @@
 
 @media screen and (max-width: 525px) {
   .techs__box {
-   margin: 0 14px;
+   margin: 0 auto;
   }
 
   .techs__title {

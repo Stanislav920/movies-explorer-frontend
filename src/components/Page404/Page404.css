@@ -22,7 +22,6 @@
     text-align: center;
     color: #000000;
     margin: 0 0 184px;
-    text-align: center;
   }
   
   .page404__button {
@@ -38,4 +37,25 @@
   
   .page404__button:hover {
     opacity: 0.7;
+  }
+
+  @media screen and (max-width: 525px) {
+    .page404__title {
+      max-height: 97px;
+      margin: 258px 0px 47px;
+      font-size: 80px;
+    }
+
+    .page404__text {
+      font-size: 12px;
+      margin: 0 0 280px;
+  }
+
+  .page404__button {
+    margin:  0 0 30px 0;
+    font-size: 12px;
+
+
+  }
+
   }

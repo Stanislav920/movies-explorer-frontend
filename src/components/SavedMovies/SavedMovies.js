@@ -12,11 +12,11 @@ function SavedMovies() {
         
         <>
         <HeaderAuth/>
-        <main className="main__box">
+        <main className="main-box">
             <SearchForm />
             {/* <Preloader /> */}
             <MoviesCardList />
-            <button className="movies__button" type="button">Еще</button>
+            <button className="main-box__button" type="button">Еще</button>
         </main>
         <Footer />
         </>

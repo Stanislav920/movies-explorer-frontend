@@ -13,7 +13,7 @@ function Profile() {
             <form className='profile__form'>
                 <fieldset className='profile__fieldset'>
                     <label className='profile__fields'>
-                        <p className='profile__input-name'>Имя</p>
+                        <span className='profile__input-name'>Имя</span>
                         <input className='profile__input'
                             type='text'
                             name='name'
@@ -24,7 +24,7 @@ function Profile() {
                     </label>
                     <div className="profile__line"></div>
                     <label className='profile__fields'>
-                        <p className='profile__input-email'>E-mail</p>
+                        <span className='profile__input-email'>E-mail</span>
                         <input className='profile__input'
                             type='email'
                             name='email'
@@ -34,10 +34,10 @@ function Profile() {
                     </label>
                 </fieldset>
                 <div className='profile__nav'>
-                    <button className='profile__button_edit' type='submit'>Редактировать</button>
-                    <button className='profile__button_signin' type="button">
-                        <a className="profile__button_signout" href="/">Выйти из аккаунта</a>
-                    </button>
+                    <button className='profile__edit-button' type='submit'>Редактировать</button>
+                    
+                        <a className="profile__signout-button" href="/">Выйти из аккаунта</a>
+                    
                 </div>
             </form>
           </div>
