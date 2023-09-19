@@ -11,7 +11,7 @@
 
 Для запуска проекта необходимо выполнить следующие действия:
 
-1. Склонировать проект на ваш компьютер с [Github](https://github.com/Stanislav920/movies-explorer-frontend.git) с помощью команды:
+1. Склонировать проект на ваш компьютер с [Github](https://github.com/Stanislav920/movies-explorer-frontend/pull/2) с помощью команды:
 ```
 git clone 
 ```
