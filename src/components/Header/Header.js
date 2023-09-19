@@ -1,12 +1,22 @@
-import "./Header.css";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+
+import "./Header.css";
 import logo from "../../images/logo-circle.svg";
+import HeaderAuth from "../HeaderAuth/HeaderAuth";
+
 
 
 
 function Header() {
+  const { logedId } = useContext(CurrentUserContext);
+
   return ( 
     <>
+        {logedId && <HeaderAuth />}
+         
+        {!logedId && (
          <header className="header">
             <div className="header__container">
               <Link to="/">
@@ -22,7 +32,7 @@ function Header() {
               </nav>
             </div>
           </header>
-                
+        )}       
       </>
   )
         

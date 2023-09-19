@@ -6,7 +6,8 @@ import AboutProject from "./AboutProject/AboutProject";
 import Techs from "./Techs/Techs"
 import AboutMe from "./AboutMe/AboutMe";
 import Footer from "../Footer/Footer";
-import '../Body/Body.css'
+import '../Body/Body.css';
+
 
 
 
