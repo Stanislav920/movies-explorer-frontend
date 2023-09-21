@@ -17,7 +17,7 @@
 
 ## Ссылка на pull requests 
 
-[Github](https://github.com/Stanislav920/movies-explorer-frontend/pull/2)
+[pull requests](https://github.com/Stanislav920/movies-explorer-frontend/pull/2)
 
 ## Ссылки на макет проекта
 
