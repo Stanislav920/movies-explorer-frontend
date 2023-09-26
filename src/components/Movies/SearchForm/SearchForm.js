@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./SearchForm.css";
 
 function SearchForm(props) {
-  const [filmDirty, setFilmDirty] = useState(false);
   const [errorMessageFilm, setErrorMessageFilm] = useState(
     "Введите название фильма"
   );
   const {
     searchText,
+    filmDirty,
     searchHandler,
     findeMovies,
     switchHandler,
@@ -15,11 +15,11 @@ function SearchForm(props) {
     nameLocal,
   } = props;
 
-  useEffect(() => {
-    if (filmDirty && searchText?.length) {
-      setFilmDirty(false);
-    }
-  }, [searchText, filmDirty]);
+  // useEffect(() => {
+  //   if (filmDirty && searchText?.length) {
+  //     setFilmDirty(false);
+  //   }
+  // }, [searchText, filmDirty]);
 
   return (
     <section className="search">
@@ -41,7 +41,6 @@ function SearchForm(props) {
               searchHandler(event.target.value, nameLocal);
             }}
             value={searchText}
-            onClick={(e) => setFilmDirty(true)}
           />
           <button
             className="searchform__button"

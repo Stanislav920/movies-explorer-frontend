@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { getMovies } from "../../utils/Api/MoviesApi";
 import { getSaveMovies } from "../../utils/Api/MainApi";
 import { useResize } from "../../utils/Useresize";
@@ -10,8 +10,12 @@ import {
   ADD_MOVIES_CARD_1280,
   ADD_MOVIES_CARD_768,
   ADD_MOVIES_CARD_480,
+  ADD_MOVIES_CARD_1279,
 } from "../../utils/Constants/constants";
-import { getLocalStorage, setLocalStorage } from "../../utils/localStorage/localStorage";
+import {
+  getLocalStorage,
+  setLocalStorage,
+} from "../../utils/localStorage/localStorage";
 import { convertSaveMoviesData } from "../../convertSaveMoviesData/convertSaveMoviesData";
 
 import "./Movies.css";
@@ -23,7 +27,6 @@ import Preloader from "./Preloader/Preloader";
 import Header from "../Header/Header";
 
 function Movies(props) {
-
   const [preloader, setPreloader] = useState(false);
   const [counterCard, setCounterCard] = useState(0);
   const [switchCheked, setSwitchCheked] = useState(false);
@@ -31,6 +34,7 @@ function Movies(props) {
   const [flag, setFlag] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [durationLength, setDurationLength] = useState(0);
+  const [filmDirty, setFilmDirty] = useState(false);
   const { currentScreen } = useResize();
   const {
     setSaveMoviesStore,
@@ -39,19 +43,22 @@ function Movies(props) {
     setCards,
     films,
     setFilms,
-    setSearchText
+    setSearchText,
   } = useContext(CurrentUserContext);
   const { searchHandler } = props;
-  const titleName =  "MoviesSearch";
+  const titleName = "MoviesSearch";
 
   const switchHandler = (status) => {
-    const settings =  localStorage.getItem(`settings_${titleName}`);
-    if(settings){
+    const settings = localStorage.getItem(`settings_${titleName}`);
+    if (settings) {
       const obj = JSON.parse(settings);
       obj.shortSwich = status;
-      localStorage.setItem(`settings_${titleName}`, JSON.stringify(obj))
+      localStorage.setItem(`settings_${titleName}`, JSON.stringify(obj));
     } else {
-      localStorage.setItem(`settings_${titleName}`, `{"searchText": "", "shortSwich": ${status}}`)
+      localStorage.setItem(
+        `settings_${titleName}`,
+        `{"searchText": "", "shortSwich": ${status}}`
+      );
     }
     setSwitchCheked(status);
     setIsSearch(true);
@@ -93,31 +100,31 @@ function Movies(props) {
 
   useEffect(() => {
     const searchSetings = getLocalStorage(`settings_${titleName}`);
-    if(searchSetings?.searchText){
-      setSearchText(searchSetings.searchText)
-      setIsSearch(true)
+    if (searchSetings?.searchText) {
+      setSearchText(searchSetings.searchText);
+      setIsSearch(true);
     }
-    if(searchSetings?.shortSwich){
-      setSwitchCheked(searchSetings.shortSwich)
+    if (searchSetings?.shortSwich) {
+      setSwitchCheked(searchSetings.shortSwich);
     }
-    
+
     if (!cards.length) {
       setPreloader(true);
       const fetchData = async () => {
-        const MoviesSearchData = await getLocalStorage(titleName);
-      
-        if(!MoviesSearchData?.length){
+        const MoviesSearchData = getLocalStorage(titleName);
+
+        if (!MoviesSearchData.length) {
           const saves = await getSaveMovies();
           const data = await getMovies();
-          const convertSaves = await convertSaveMoviesData(data, saves)
+          const convertSaves = await convertSaveMoviesData(data, saves);
           setSaveMoviesStore(convertSaves);
           setFindeSaveMoviesStore(convertSaves);
-          
-            const newData = data.map((item) => {
-              const isFind = saves.find((obg) => obg.movieId === item.id);
-              return { ...item, inSaved: !!isFind };
+
+          const newData = data.map((item) => {
+            const isFind = saves.find((obg) => obg.movieId === item.id);
+            return { ...item, inSaved: !!isFind };
           });
-         
+
           setCards(newData);
         } else {
           setCards(MoviesSearchData);
@@ -127,16 +134,15 @@ function Movies(props) {
       };
       fetchData();
     }
-    
   }, []);
-  
-  useEffect(() => {
-    setLocalStorage(titleName, cards);
-  }, [cards])
 
   useEffect(() => {
-    if(flag){
-      setSearchText('');
+    setLocalStorage(titleName, cards);
+  }, [cards]);
+
+  useEffect(() => {
+    if (flag) {
+      setSearchText("");
       const settings = localStorage.getItem(`settings_${titleName}`);
       if (settings) {
         const obj = JSON.parse(settings);
@@ -147,19 +153,21 @@ function Movies(props) {
         setSwitchCheked(obj.shortSwich);
       }
     }
-  }, [flag])
+  }, [flag]);
 
   const findeMovies = (text) => {
     setPreloader(true);
-    if (text.length < 2) {
-      setFilms(cards);
+    if (text.trim() === "") {
+      // setFilms(cards);
+      setFilmDirty(true);
     } else {
+      setFilmDirty(false);
       const a = text.toLowerCase().trim();
       setFilms(
         cards.filter(
           (obg) =>
-            obg.nameRU.toLowerCase().indexOf(a) !== -1 ||
-            obg.nameEN.toLowerCase().indexOf(a) !== -1
+            obg.nameRU.toLowerCase().includes(a) ||
+            obg.nameEN.toLowerCase().includes(a)
         )
       );
     }
@@ -167,10 +175,11 @@ function Movies(props) {
     setPreloader(false);
   };
 
-
   const addMoviesCard = () => {
     let add = ADD_MOVIES_CARD_1280;
-    if (currentScreen === "SCREEN_MD") {
+    if (currentScreen === "SCREEN_XL" || currentScreen === "SCREEN_LG") {
+      add = ADD_MOVIES_CARD_1279;
+    } else if (currentScreen === "SCREEN_MD") {
       add = ADD_MOVIES_CARD_768;
     } else if (currentScreen === "SCREEN_SM") {
       add = ADD_MOVIES_CARD_480;
@@ -178,23 +187,23 @@ function Movies(props) {
     setCounterCard((prev) => prev + add);
   };
 
-    return (
-        <>
+  return (
+    <>
+      <Header />
+      <main className="main-box">
+        <SearchForm
+          filmDirty={filmDirty}
+          nameLocal={titleName}
+          {...props}
+          findeMovies={findeMovies}
+          switchCheked={switchCheked}
+          switchHandler={switchHandler}
+        />
 
-          <Header/>
-          <main className="main-box">
-            <SearchForm
-            nameLocal={titleName}
-            {...props}
-            findeMovies={findeMovies}
-            switchCheked={switchCheked}
-            switchHandler={switchHandler}
-            />
+        {preloader && <Preloader />}
 
-            {preloader && <Preloader />}
-
-            {!preloader && (  
-            <MoviesCardList
+        {!preloader && (
+          <MoviesCardList
             {...props}
             titleName={titleName}
             cards={films}
@@ -202,17 +211,21 @@ function Movies(props) {
             counterCard={counterCard}
             setDurationLength={setDurationLength}
             isSearch={isSearch}
-            />
-            )}
-            {isOther && (
-              <button className="main-box__button" type="button" onClick={addMoviesCard}>
-                Еще
-              </button>
-              )}
-          </main>
-          <Footer />
-        </>
-      );
-    }
-    
-    export default Movies;
+          />
+        )}
+        {isOther && (
+          <button
+            className="main-box__button"
+            type="button"
+            onClick={addMoviesCard}
+          >
+            Еще
+          </button>
+        )}
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+export default Movies;

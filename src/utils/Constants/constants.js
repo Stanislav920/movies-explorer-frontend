@@ -9,17 +9,18 @@ export const SCREEN_XXL = 1400;
 export const SHORTS_MOVIES_DURATION = 41;
 
 //Количество отображаемых карточек с фильмами при разных разрешениях экрана
-export const MOVIES_CARDS_1280 = 12;
+export const MOVIES_CARDS_1280 = 16;
 export const MOVIES_CARDS_768 = 8;
 export const MOVIES_CARDS_480 = 5;
 
 //Количество добовляемых карточек с фильмами кнопкой ЕЩЕ
 export const ADD_MOVIES_CARD_1280 = 4;
+export const ADD_MOVIES_CARD_1279 = 3;
 export const ADD_MOVIES_CARD_768 = 2;
-export const ADD_MOVIES_CARD_480 = 1;
+export const ADD_MOVIES_CARD_480 = 2;
 
 //Для перевода длительности фильмов в минуты
 export const DURATION_CONVERT = 60;
 
 //Сообщения для пользователя
-export const PROFILE_UPDATE_MESSAGE = "Изменения в профиль успешно внесены!"
+export const PROFILE_UPDATE_MESSAGE = "Изменения в профиль успешно внесены!";

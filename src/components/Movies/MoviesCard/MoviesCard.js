@@ -7,7 +7,6 @@ import { deleteSaveMovies } from "../../../utils/Api/MainApi";
 import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 
 import "./MoviesCard.css";
-import Image from "../../../images/image.jpg";
 import deleteFilmButton from "../../../images/Close.svg";
 import saveFilmButton from "../../../images/icon__heart-red.svg";
 import saveButton from "../../../images/icon__heart.svg";

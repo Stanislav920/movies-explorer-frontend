@@ -6,9 +6,6 @@ import {
   MOVIES_CARDS_1280,
   MOVIES_CARDS_768,
   MOVIES_CARDS_480,
-  ADD_MOVIES_CARD_1280,
-  ADD_MOVIES_CARD_768,
-  ADD_MOVIES_CARD_480,
 } from "../../utils/Constants/constants";
 import {
   setLocalStorage,
@@ -29,10 +26,10 @@ function SavedMovies(props) {
   const [preloader, setPreloader] = useState(false);
   const [counterCard, setCounterCard] = useState(0);
   const [switchCheked, setSwitchCheked] = useState(false);
-  const [isOther, setisOther] = useState(false);
+
   const [durationLength, setDurationLength] = useState(0);
   const [isSearch, setIsSearch] = useState(false);
-  const { currentScreen } = useResize();
+
   const {
     findeSaveMoviesStore,
     setFindeSaveMoviesStore,
@@ -51,40 +48,6 @@ function SavedMovies(props) {
     setSwitchCheked(status);
     setIsSearch(true);
   };
-
-  useEffect(() => {
-    if (switchCheked && durationLength > counterCard) {
-      setisOther(true);
-    } else if (
-      !switchCheked &&
-      findeSaveMoviesStore.length > 0 &&
-      findeSaveMoviesStore.length > counterCard
-    ) {
-      setisOther(true);
-    } else {
-      setisOther(false);
-    }
-  }, [findeSaveMoviesStore, counterCard, switchCheked, durationLength]);
-
-  useEffect(() => {
-    switch (currentScreen) {
-      case "SCREEN_XXL":
-        setCounterCard(MOVIES_CARDS_1280);
-        break;
-      case "SCREEN_XL":
-        setCounterCard(MOVIES_CARDS_1280);
-        break;
-      case "SCREEN_LG":
-        setCounterCard(MOVIES_CARDS_1280);
-        break;
-      case "SCREEN_MD":
-        setCounterCard(MOVIES_CARDS_768);
-        break;
-      default:
-        setCounterCard(MOVIES_CARDS_480);
-        break;
-    }
-  }, [currentScreen]);
 
   useEffect(() => {
     setPreloader(true);
@@ -117,23 +80,13 @@ function SavedMovies(props) {
       setFindeSaveMoviesStore(
         saveMoviesStore.filter(
           (obg) =>
-            obg.nameRU.toLowerCase().indexOf(a) !== -1 ||
-            obg.nameEN.toLowerCase().indexOf(a) !== -1
+            obg.nameRU.toLowerCase().includes(a) ||
+            obg.nameEN.toLowerCase().includes(a)
         )
       );
     }
     setIsSearch(true);
     setPreloader(false);
-  };
-
-  const addMoviesCard = () => {
-    let add = ADD_MOVIES_CARD_1280;
-    if (currentScreen === "SCREEN_MD") {
-      add = ADD_MOVIES_CARD_768;
-    } else if (currentScreen === "SCREEN_SM") {
-      add = ADD_MOVIES_CARD_480;
-    }
-    setCounterCard((prev) => prev + add);
   };
 
   return (
@@ -160,15 +113,6 @@ function SavedMovies(props) {
             deliteFilm={deliteFilm}
             isSearch={isSearch}
           />
-        )}
-        {isOther && (
-          <button
-            className="main-box__button"
-            type="button"
-            onClick={addMoviesCard}
-          >
-            Еще
-          </button>
         )}
       </main>
       <Footer />
