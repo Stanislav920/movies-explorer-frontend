@@ -10,7 +10,7 @@ export const SHORTS_MOVIES_DURATION = 41;
 
 //Количество отображаемых карточек с фильмами при разных разрешениях экрана
 export const MOVIES_CARDS_1280 = 16;
-export const MOVIES_CARDS_768 = 8;
+export const MOVIES_CARDS_768 = 10;
 export const MOVIES_CARDS_480 = 5;
 
 //Количество добовляемых карточек с фильмами кнопкой ЕЩЕ
