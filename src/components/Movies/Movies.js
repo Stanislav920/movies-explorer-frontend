@@ -78,7 +78,7 @@ function Movies(props) {
     }
   }, [films, counterCard, switchCheked, durationLength]);
 
-  useEffect(() => {
+  function getCounterCard() {
     switch (currentScreen) {
       case "SCREEN_XXL":
         setCounterCard(MOVIES_CARDS_1280);
@@ -96,6 +96,10 @@ function Movies(props) {
         setCounterCard(MOVIES_CARDS_480);
         break;
     }
+  }
+
+  useEffect(() => {
+    getCounterCard();
   }, [currentScreen]);
 
   useEffect(() => {
@@ -157,6 +161,7 @@ function Movies(props) {
 
   const findeMovies = (text) => {
     setPreloader(true);
+    getCounterCard();
     if (text.trim() === "") {
       // setFilms(cards);
       setFilmDirty(true);
