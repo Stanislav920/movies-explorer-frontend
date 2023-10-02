@@ -7,6 +7,8 @@ import {
   MOVIES_CARDS_1280,
   MOVIES_CARDS_768,
   MOVIES_CARDS_480,
+  MOVIES_CARDS_1279,
+  MOVIES_CARDS_1199,
   ADD_MOVIES_CARD_1280,
   ADD_MOVIES_CARD_768,
   ADD_MOVIES_CARD_480,
@@ -44,6 +46,7 @@ function Movies(props) {
     films,
     setFilms,
     setSearchText,
+    searchText,
   } = useContext(CurrentUserContext);
   const { searchHandler } = props;
   const titleName = "MoviesSearch";
@@ -84,10 +87,10 @@ function Movies(props) {
         setCounterCard(MOVIES_CARDS_1280);
         break;
       case "SCREEN_XL":
-        setCounterCard(MOVIES_CARDS_1280);
+        setCounterCard(MOVIES_CARDS_1279);
         break;
       case "SCREEN_LG":
-        setCounterCard(MOVIES_CARDS_1280);
+        setCounterCard(MOVIES_CARDS_1199);
         break;
       case "SCREEN_MD":
         setCounterCard(MOVIES_CARDS_768);
@@ -111,13 +114,15 @@ function Movies(props) {
     if (searchSetings?.shortSwich) {
       setSwitchCheked(searchSetings.shortSwich);
     }
-
+    console.log(searchText);
     if (!cards.length) {
+      console.log(cards);
       setPreloader(true);
       const fetchData = async () => {
         const MoviesSearchData = getLocalStorage(titleName);
 
-        if (!MoviesSearchData.length) {
+        if (!MoviesSearchData.length && searchText.length > 0) {
+          console.log(MoviesSearchData);
           const saves = await getSaveMovies();
           const data = await getMovies();
           const convertSaves = await convertSaveMoviesData(data, saves);
@@ -131,6 +136,7 @@ function Movies(props) {
 
           setCards(newData);
         } else {
+          console.log(MoviesSearchData);
           setCards(MoviesSearchData);
           setFlag(true);
         }
@@ -138,7 +144,7 @@ function Movies(props) {
       };
       fetchData();
     }
-  }, []);
+  }, [searchText]);
 
   useEffect(() => {
     setLocalStorage(titleName, cards);
@@ -163,7 +169,7 @@ function Movies(props) {
     setPreloader(true);
     getCounterCard();
     if (text.trim() === "") {
-      // setFilms(cards);
+      setFilms(cards);
       setFilmDirty(true);
     } else {
       setFilmDirty(false);

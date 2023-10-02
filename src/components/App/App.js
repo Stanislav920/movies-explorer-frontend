@@ -25,7 +25,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [films, setFilms] = useState([]);
   const [popupOpen, setPopupOpen] = useState(false);
-  const [popupMessage, setPopupMessage] = useState("Произошла ошибка! Попробуйти еще раз.");
+  const [popupMessage, setPopupMessage] = useState("");
 
   const closePopup = () => {
     setPopupOpen(false);
@@ -93,6 +93,7 @@ function App() {
           findeSaveMoviesStore,
           setFindeSaveMoviesStore,
           openPopup,
+          searchText,
         }}
       >
         <div className="App">

@@ -1,7 +1,7 @@
 //Разрешение экрана
 export const SCREEN_SM = 480;
 export const SCREEN_MD = 768;
-export const SCREEN_LG = 992;
+export const SCREEN_LG = 990;
 export const SCREEN_XL = 1200;
 export const SCREEN_XXL = 1280;
 
@@ -10,6 +10,8 @@ export const SHORTS_MOVIES_DURATION = 41;
 
 //Количество отображаемых карточек с фильмами при разных разрешениях экрана
 export const MOVIES_CARDS_1280 = 16;
+export const MOVIES_CARDS_1279 = 15;
+export const MOVIES_CARDS_1199 = 12;
 export const MOVIES_CARDS_768 = 8;
 export const MOVIES_CARDS_480 = 5;
 
