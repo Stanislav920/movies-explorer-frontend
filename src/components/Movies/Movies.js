@@ -114,7 +114,7 @@ function Movies(props) {
     if (searchSetings?.shortSwich) {
       setSwitchCheked(searchSetings.shortSwich);
     }
-    console.log(searchText);
+  
     if (!cards.length) {
       console.log(cards);
       setPreloader(true);
@@ -122,7 +122,6 @@ function Movies(props) {
         const MoviesSearchData = getLocalStorage(titleName);
 
         if (!MoviesSearchData.length && searchText.length > 0) {
-          console.log(MoviesSearchData);
           const saves = await getSaveMovies();
           const data = await getMovies();
           const convertSaves = await convertSaveMoviesData(data, saves);
@@ -136,7 +135,6 @@ function Movies(props) {
 
           setCards(newData);
         } else {
-          console.log(MoviesSearchData);
           setCards(MoviesSearchData);
           setFlag(true);
         }
