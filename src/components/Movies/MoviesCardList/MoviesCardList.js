@@ -37,7 +37,7 @@ function MoviesCardList({
               saveMoviesCards={saveMoviesCards}
               deliteFilm={deliteFilm}
             />
-          ))
+          )) 
         ) : isSearch ? (
           <>Ничего не найдено!</>
         ) : (

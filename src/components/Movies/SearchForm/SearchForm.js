@@ -7,17 +7,17 @@ function SearchForm(props) {
   );
   const {
     searchText,
-    filmDirty,
     searchHandler,
+    filmDirty,
     findeMovies,
     switchHandler,
     switchCheked,
     nameLocal,
   } = props;
 
-  // useEffect(() => {
-  //   if (filmDirty && searchText?.length) {
-  //     setFilmDirty(false);
+   // useEffect(() => {
+   //  if (filmDirty && searchText?.length) {
+   //   setFilmDirty(false);
   //   }
   // }, [searchText, filmDirty]);
 
@@ -45,7 +45,7 @@ function SearchForm(props) {
           <button
             className="searchform__button"
             type="button"
-            onClick={() => findeMovies(searchText)}
+            onClick={(e) => findeMovies(searchText)}
           >
             <span className="searchform__button-find">Найти</span>
           </button>

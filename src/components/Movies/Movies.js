@@ -101,6 +101,37 @@ function Movies(props) {
     }
   }
 
+  async function getAllCards() {
+    if (!cards.length) {
+      setPreloader(true);
+
+      const MoviesSearchData = getLocalStorage(titleName);
+
+      if (!MoviesSearchData.length && searchText.length > 0) {
+        const saves = await getSaveMovies();
+        const data = await getMovies();
+        const convertSaves = await convertSaveMoviesData(data, saves);
+        setSaveMoviesStore(convertSaves);
+        setFindeSaveMoviesStore(convertSaves);
+
+        const newData = data.map((item) => {
+          const isFind = saves.find((obg) => obg.movieId === item.id);
+          return { ...item, inSaved: !!isFind };
+        });
+        setPreloader(false);
+        setCards(newData);
+        return newData;
+      } else {
+        setCards(MoviesSearchData);
+        setPreloader(false);
+        setFlag(true);
+        return MoviesSearchData;
+      }
+    } else {
+      return cards;
+    }
+  }
+
   useEffect(() => {
     getCounterCard();
   }, [currentScreen]);
@@ -114,35 +145,8 @@ function Movies(props) {
     if (searchSetings?.shortSwich) {
       setSwitchCheked(searchSetings.shortSwich);
     }
-  
-    if (!cards.length) {
-      console.log(cards);
-      setPreloader(true);
-      const fetchData = async () => {
-        const MoviesSearchData = getLocalStorage(titleName);
-
-        if (!MoviesSearchData.length && searchText.length > 0) {
-          const saves = await getSaveMovies();
-          const data = await getMovies();
-          const convertSaves = await convertSaveMoviesData(data, saves);
-          setSaveMoviesStore(convertSaves);
-          setFindeSaveMoviesStore(convertSaves);
-
-          const newData = data.map((item) => {
-            const isFind = saves.find((obg) => obg.movieId === item.id);
-            return { ...item, inSaved: !!isFind };
-          });
-
-          setCards(newData);
-        } else {
-          setCards(MoviesSearchData);
-          setFlag(true);
-        }
-        setPreloader(false);
-      };
-      fetchData();
-    }
-  }, [searchText]);
+    getAllCards();
+  }, []);
 
   useEffect(() => {
     setLocalStorage(titleName, cards);
@@ -164,24 +168,27 @@ function Movies(props) {
   }, [flag]);
 
   const findeMovies = (text) => {
-    setPreloader(true);
-    getCounterCard();
-    if (text.trim() === "") {
-      setFilms(cards);
-      setFilmDirty(true);
-    } else {
-      setFilmDirty(false);
-      const a = text.toLowerCase().trim();
-      setFilms(
-        cards.filter(
-          (obg) =>
-            obg.nameRU.toLowerCase().includes(a) ||
-            obg.nameEN.toLowerCase().includes(a)
-        )
-      );
-    }
-    setIsSearch(true);
-    setPreloader(false);
+    getAllCards().then((cards) => {
+      console.log(cards);
+      setPreloader(true);
+      getCounterCard();
+      if (text.trim() === "") {
+        setFilms(cards);
+        setFilmDirty(true);
+      } else {
+        setFilmDirty(false);
+        const a = text.toLowerCase().trim();
+        setFilms(
+          cards.filter(
+            (obg) =>
+              obg.nameRU.toLowerCase().includes(a) ||
+              obg.nameEN.toLowerCase().includes(a)
+          )
+        );
+      }
+      setIsSearch(true);
+      setPreloader(false);
+    });
   };
 
   const addMoviesCard = () => {
