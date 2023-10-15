@@ -1,0 +1,153 @@
+.popupmenu {
+    display: none;
+  }
+  
+  .popupmenu__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .popupmenu__button:hover {
+    opacity: 0.7;
+  }
+
+  .popupmenu__button-img {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .popupmenu__close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .popupmenu__close:hover {
+    opacity: 0.7;
+  }
+  
+  .popupmenu__active {
+    background-color: #FFFFFF;
+  }
+  
+  .popupmenu__links {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  @media screen and (max-width: 769px) {
+    .popupmenu {
+      display: block;
+    }
+    
+    .popup-container {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left:0;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: flex-end;
+      z-index: 1;
+    }
+  
+    .popupmenu__active {
+      top: 0;
+      width: 67.7%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .popupmenu__close {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 22px;
+      margin-right: 22px;
+      padding: 0;
+    }
+  
+    .popupmenu__links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      padding-left: 0;
+      margin: 0 0 497px 0;
+    }
+  
+    .popupmenu__footer {
+      display: flex;
+      justify-content: center;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      color: #000000;
+      padding-bottom: 90px;
+      margin: 0;
+    }
+  
+    .popupmenu__footer-box {
+      display: flex;
+      gap: 7px;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      color: #000;
+      text-decoration: none;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+      border-radius: 50px;
+      width: 100px;
+      height: 32px;
+    }
+  
+    .popupmenu__login {
+      text-decoration: none;
+      color: #000000;
+    }
+    
+    .popupmenu__link {
+      text-decoration: none;
+      color: #000000;
+      padding-bottom: 7px;
+    }
+  
+    .popupmenu__link:hover {
+      border-bottom: 2px solid #000000;
+    }
+  }
+  
+  @media screen and (max-width: 425px) {
+    .popupmenu__active {
+      width: 100%;
+      
+    }
+    
+    .popupmenu__close {
+      margin-top: 13px;
+      margin-right: 13px;
+
+    }
+
+    .popupmenu__links {
+      margin: 99px 0 417px 0;
+      gap: 24px;
+    }
+
+    .popupmenu__footer {
+      padding: 0 0 46px 0;
+    }
+  }
